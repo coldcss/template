@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Future of Ethereum</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom CSS for animations and effects */
+        .gradient-text {
+            background: linear-gradient(90deg, #8a2be2, #00bfff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .eth-card {
+            background: linear-gradient(135deg, rgba(138, 43, 226, 0.1), rgba(0, 191, 255, 0.1));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .hero-section {
+            background: radial-gradient(circle at 30% 50%, rgba(138, 43, 226, 0.15) 0%, rgba(0, 0, 0, 0) 50%),
+                        radial-gradient(circle at 70% 50%, rgba(0, 191, 255, 0.15) 0%, rgba(0, 0, 0, 0) 50%);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(138, 43, 226, 0.2);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -38px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #8a2be2, #00bfff);
+            border: 3px solid #1e293b;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200 font-sans overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-gray-900/80 backdrop-blur-md border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <span class="text-2xl font-bold gradient-text">Ethereum</span>
+                    </div>
+                    <div class="hidden md:block">
+                        <div class="ml-10 flex items-baseline space-x-4">
+                            <a href="#home" class="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-gray-800 transition">Home</a>
+                            <a href="#features" class="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800 transition">Features</a>
+                            <a href="#roadmap" class="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800 transition">Roadmap</a>
+                            <a href="#ecosystem" class="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800 transition">Ecosystem</a>
+                            <a href="#faq" class="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800 transition">FAQ</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-4 flex items-center md:ml-6">
+                        <button class="bg-gradient-to-r from-purple-600 to-blue-500 px-4 py-2 rounded-md text-sm font-medium text-white hover:opacity-90 transition">
+                            Connect Wallet
+                        </button>
+                    </div>
+                </div>
+                <div class="-mr-2 flex md:hidden">
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-800">Home</a>
+                <a href="#features" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800">Features</a>
+                <a href="#roadmap" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800">Roadmap</a>
+                <a href="#ecosystem" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800">Ecosystem</a>
+                <a href="#faq" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800">FAQ</a>
+                <button class="w-full bg-gradient-to-r from-purple-600 to-blue-500 px-4 py-2 rounded-md text-sm font-medium text-white hover:opacity-90 transition mt-2">
+                    Connect Wallet
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                        The <span class="gradient-text">Future</span> of <br>Decentralized <span class="gradient-text">Ethereum</span>
+                    </h1>
+                    <p class="text-lg text-gray-300 mb-8 max-w-lg">
+                        Ethereum is evolving. Discover the next generation of blockchain technology with scalability, security, and sustainability at its core.
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <button class="bg-gradient-to-r from-purple-600 to-blue-500 px-6 py-3 rounded-lg text-lg font-medium text-white hover:opacity-90 transition">
+                            Explore ETH 2.0
+                        </button>
+                        <button class="border border-gray-600 px-6 py-3 rounded-lg text-lg font-medium text-white hover:bg-gray-800 transition">
+                            <i class="fab fa-github mr-2"></i> View on GitHub
+                        </button>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center relative">
+                    <div class="eth-card rounded-2xl p-6 w-full max-w-md floating">
+                        <div class="flex justify-between items-center mb-6">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 rounded-full bg-purple-600 flex items-center justify-center">
+                                    <i class="fab fa-ethereum text-white text-xl"></i>
+                                </div>
+                                <span class="ml-3 text-xl font-bold">Ethereum</span>
+                            </div>
+                            <span class="text-sm text-gray-400">ETH 2.0</span>
+                        </div>
+                        <div class="bg-gray-800 rounded-xl p-6 mb-6">
+                            <div class="flex justify-between mb-4">
+                                <span class="text-gray-400">Current Price</span>
+                                <span class="font-bold">$3,142.75</span>
+                            </div>
+                            <div class="flex justify-between mb-4">
+                                <span class="text-gray-400">Market Cap</span>
+                                <span class="font-bold">$377.73B</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">Staked ETH</span>
+                                <span class="font-bold">12.8M ETH</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-gray-400 block text-sm">Daily Transactions</span>
+                                <span class="font-bold">1.2M</span>
+                            </div>
+                            <div>
+                                <span class="text-gray-400 block text-sm">Active Addresses</span>
+                                <span class="font-bold">650K</span>
+                            </div>
+                            <div>
+                                <span class="text-gray-400 block text-sm">Gas Fees</span>
+                                <span class="font-bold">15 Gwei</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Key <span class="gradient-text">Features</span> of Ethereum 2.0</h2>
+                <p class="text-lg text-gray-400 max-w-3xl mx-auto">
+                    The next evolution of Ethereum brings groundbreaking improvements to scalability, security, and sustainability.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="feature-card bg-gray-800 rounded-xl p-8 transition duration-300 hover:shadow-lg">
+                    <div class="w-16 h-16 rounded-full bg-purple-600/20 flex items-center justify-center mb-6">
+                        <i class="fas fa-bolt text-purple-400 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Proof of Stake</h3>
+                    <p class="text-gray-400">
+                        Transition from energy-intensive mining to eco-friendly staking, reducing energy consumption by ~99.95%.
+                    </p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="feature-card bg-gray-800 rounded-xl p-8 transition duration-300 hover:shadow-lg">
+                    <div class="w-16 h-16 rounded-full bg-blue-600/20 flex items-center justify-center mb-6">
+                        <i class="fas fa-layer-group text-blue-400 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Sharding</h3>
+                    <p class="text-gray-400">
+                        Parallel processing of transactions across 64 chains, increasing throughput to 100,000+ TPS.
+                    </p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="feature-card bg-gray-800 rounded-xl p-8 transition duration-300 hover:shadow-lg">
+                    <div class="w-16 h-16 rounded-full bg-green-600/20 flex items-center justify-center mb-6">
+                        <i class="fas fa-lock text-green-400 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Enhanced Security</h3>
+                    <p class="text-gray-400">
+                        Stronger cryptographic security with BLS signatures and decentralized randomness.
+                    </p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="feature-card bg-gray-800 rounded-xl p-8 transition duration-300 hover:shadow-lg">
+                    <div class="w-16 h-16 rounded-full bg-yellow-600/20 flex items-center justify-center mb-6">
+                        <i class="fas fa-tachometer-alt text-yellow-400 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Lower Fees</h3>
+                    <p class="text-gray-400">
+                        Reduced gas fees through optimized execution and data availability solutions.
+                    </p>
+                </div>
+                
+                <!-- Feature 5 -->
+                <div class="feature-card bg-gray-800 rounded-xl p-8 transition duration-300 hover:shadow-lg">
+                    <div class="w-16 h-16 rounded-full bg-red-600/20 flex items-center justify-center mb-6">
+                        <i class="fas fa-link text-red-400 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Cross-Chain Interop</h3>
+                    <p class="text-gray-400">
+                        Native support for cross-chain communication and asset transfers.
+                    </p>
+                </div>
+                
+                <!-- Feature 6 -->
+                <div class="feature-card bg-gray-800 rounded-xl p-8 transition duration-300 hover:shadow-lg">
+                    <div class="w-16 h-16 rounded-full bg-indigo-600/20 flex items-center justify-center mb-6">
+                        <i class="fas fa-cubes text-indigo-400 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Modular Design</h3>
+                    <p class="text-gray-400">
+                        Separation of execution, consensus, and data availability layers for flexibility.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section id="roadmap" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Ethereum <span class="gradient-text">Roadmap</span></h2>
+                <p class="text-lg text-gray-400 max-w-3xl mx-auto">
+                    The journey from Ethereum 1.0 to the fully realized Ethereum 2.0 vision.
+                </p>
+            </div>
+            
+            <div class="relative">
+                <!-- Timeline line -->
+                <div class="hidden md:block absolute left-1/2 h-full w-1 bg-gradient-to-b from-purple-600 to-blue-500"></div>
+                
+                <!-- Timeline items -->
+                <div class="space-y-8 md:space-y-16">
+                    <!-- Phase 1 -->
+                    <div class="relative md:flex items-center">
+                        <div class="md:w-1/2 md:pr-16 mb-8 md:mb-0 md:text-right">
+                            <div class="inline-block bg-gray-800 rounded-xl p-6 shadow-lg">
+                                <div class="flex items-center mb-2">
+                                    <span class="w-3 h-3 rounded-full bg-purple-500 mr-2"></span>
+                                    <span class="text-sm font-medium text-purple-400">Completed</span>
+                                </div>
+                                <h3 class="text-xl font-bold mb-2">Phase 0: Beacon Chain</h3>
+                                <p class="text-gray-400">
+                                    Launched in December 2020, introducing Proof of Stake consensus.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="hidden md:block md:w-1/2"></div>
+                        <div class="md:absolute left-1/2 transform -translate-x-1/2">
+                            <div class="w-16 h-16 rounded-full bg-purple-600 flex items-center justify-center border-4 border-gray-900">
+                                <span class="text-xl font-bold">2020</span>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2 md:pl-16"></div>
+                    </div>
+                    
+                    <!-- Phase 2 -->
+                    <div class="relative md:flex items-center">
+                        <div class="md:w-1/2 md:pr-16"></div>
+                        <div class="md:absolute left-1/2 transform -translate-x-1/2">
+                            <div class="w-16 h-16 rounded-full bg-blue-600 flex items-center justify-center border-4 border-gray-900">
+                                <span class="text-xl font-bold">2021</span>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2 md:pl-16 mb-8 md:mb-0">
+                            <div class="inline-block bg-gray-800 rounded-xl p-6 shadow-lg">
+                                <div class="flex items-center mb-2">
+                                    <span class="w-3 h-3 rounded-full bg-blue-500 mr-2"></span>
+                                    <span class="text-sm font-medium text-blue-400">Completed</span>
+                                </div>
+                                <h3 class="text-xl font-bold mb-2">Phase 1: The Merge</h3>
+                                <p class="text-gray-400">
+                                    Ethereum mainnet merged with Beacon Chain in September 2022, completing the transition to PoS.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Phase 3 -->
+                    <div class="relative md:flex items-center">
+                        <div class="md:w-1/2 md:pr-16 mb-8 md:mb-0 md:text-right">
+                            <div class="inline-block bg-gray-800 rounded-xl p-6 shadow-lg">
+                                <div class="flex items-center mb-2">
+                                    <span class="w-3 h-3 rounded-full bg-yellow-500 mr-2"></span>
+                                    <span class="text-sm font-medium text-yellow-400">In Progress</span>
+                                </div>
+                                <h3 class="text-xl font-bold mb-2">Phase 2: Sharding</h3>
+                                <p class="text-gray-400">
+                                    Implementation of data shards to increase scalability (2023-2024).
+                                </p>
+                            </div>
+                        </div>
+                        <div class="hidden md:block md:w-1/2"></div>
+                        <div class="md:absolute left-1/2 transform -translate-x-1/2">
+                            <div class="w-16 h-16 rounded-full bg-yellow-600 flex items-center justify-center border-4 border-gray-900">
+                                <span class="text-xl font-bold">2023</span>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2 md:pl-16"></div>
+                    </div>
+                    
+                    <!-- Phase 4 -->
+                    <div class="relative md:flex items-center">
+                        <div class="md:w-1/2 md:pr-16"></div>
+                        <div class="md:absolute left-1/2 transform -translate-x-1/2">
+                            <div class="w-16 h-16 rounded-full bg-green-600 flex items-center justify-center border-4 border-gray-900">
+                                <span class="text-xl font-bold">2024+</span>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2 md:pl-16 mb-8 md:mb-0">
+                            <div class="inline-block bg-gray-800 rounded-xl p-6 shadow-lg">
+                                <div class="flex items-center mb-2">
+                                    <span class="w-3 h-3 rounded-full bg-green-500 mr-2"></span>
+                                    <span class="text-sm font-medium text-green-400">Future</span>
+                                </div>
+                                <h3 class="text-xl font-bold mb-2">Phase 3: Full Vision</h3>
+                                <p class="text-gray-400">
+                                    Complete implementation of all Ethereum 2.0 features including execution shards.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ecosystem Section -->
+    <section id="ecosystem" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Ethereum <span class="gradient-text">Ecosystem</span></h2>
+                <p class="text-lg text-gray-400 max-w-3xl mx-auto">
+                    A thriving network of applications, services, and communities built on Ethereum.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+                <div class="bg-gray-800 rounded-xl p-6 flex flex-col items-center hover:bg-gray-700 transition">
+                    <div class="w-16 h-16 rounded-full bg-blue-900/30 flex items-center justify-center mb-4">
+                        <i class="fas fa-wallet text-blue-400 text-2xl"></i>
+                    </div>
+                    <span class="font-medium">Wallets</span>
+                </div>
+                <div class="bg-gray-800 rounded-xl p-6 flex flex-col items-center hover:bg-gray-700 transition">
+                    <div class="w-16 h-16 rounded-full bg-purple-900/30 flex items-center justify-center mb-4">
+                        <i class="fas fa-exchange-alt text-purple-400 text-2xl"></i>
+                    </div>
+                    <span class="font-medium">DEXs</span>
+                </div>
+                <div class="bg-gray-800 rounded-xl p-6 flex flex-col items-center hover:bg-gray-700 transition">
+                    <div class="w-16 h-16 rounded-full bg-green-900/30 flex items-center justify-center mb-4">
+                        <i class="fas fa-landmark text-green-400 text-2xl"></i>
+                    </div>
+                    <span class="font-medium">DeFi</span>
+                </div>
+                <div class="bg-gray-800 rounded-xl p-6 flex flex-col items-center hover:bg-gray-700 transition">
+                    <div class="w-16 h-16 rounded-full bg-yellow-900/30 flex items-center justify-center mb-4">
+                        <i class="fas fa-paint-brush text-yellow-400 text-2xl"></i>
+                    </div>
+                    <span class="font-medium">NFTs</span>
+                </div>
+                <div class="bg-gray-800 rounded-xl p-6 flex flex-col items-center hover:bg-gray-700 transition">
+                    <div class="w-16 h-16 rounded-full bg-red-900/30 flex items-center justify-center mb-4">
+                        <i class="fas fa-gamepad text-red-400 text-2xl"></i>
+                    </div>
+                    <span class="font-medium">Gaming</span>
+                </div>
+                <div class="bg-gray-800 rounded-xl p-6 flex flex-col items-center hover:bg-gray-700 transition">
+                    <div class="w-16 h-16 rounded-full bg-indigo-900/30 flex items-center justify-center mb-4">
+                        <i class="fas fa-globe text-indigo-400 text-2xl"></i>
+                    </div>
+                    <span class="font-medium">DAOs</span>
+                </div>
+            </div>
+            
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-gray-800 rounded-xl p-8">
+                    <h3 class="text-xl font-bold mb-4">Developer Tools</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-3"></i>
+                            <span>Solidity & Vyper programming languages</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-3"></i>
+                            <span>Truffle & Hardhat development frameworks</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-3"></i>
+                            <span>OpenZeppelin contracts library</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-3"></i>
+                            <span>IPFS for decentralized storage</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-gray-800 rounded-xl p-8">
+                    <h3 class="text-xl font-bold mb-4">Enterprise Adoption</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-3"></i>
+                            <span>Enterprise Ethereum Alliance (EEA)</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-3"></i>
+                            <span>Microsoft Azure Blockchain Service</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-3"></i>
+                            <span>JPMorgan's Quorum (now ConsenSys Quorum)</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-3"></i>
+                            <span>EY's Nightfall privacy solution</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Frequently Asked <span class="gradient-text">Questions</span></h2>
+                <p class="text-lg text-gray-400 max-w-3xl mx-auto">
+                    Get answers to common questions about Ethereum's future.
+                </p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="space-y-4">
+                    <!-- FAQ Item 1 -->
+                    <div class="bg-gray-800 rounded-xl overflow-hidden">
+                        <button class="faq-toggle w-full flex justify-between items-center p-6 text-left">
+                            <span class="text-lg font-medium">What is Ethereum 2.0 and how is it different?</span>
+                            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content px-6 pb-6 hidden">
+                            <p class="text-gray-400">
+                                Ethereum 2.0 (now simply called Ethereum) is a major upgrade to the Ethereum blockchain that transitions it from Proof of Work (PoW) to Proof of Stake (PoS), introduces sharding for scalability, and improves security and sustainability. The key differences are energy efficiency (99.95% less energy), higher transaction throughput, and lower fees at scale.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 2 -->
+                    <div class="bg-gray-800 rounded-xl overflow-hidden">
+                        <button class="faq-toggle w-full flex justify-between items-center p-6 text-left">
+                            <span class="text-lg font-medium">How do I stake ETH and earn rewards?</span>
+                            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content px-6 pb-6 hidden">
+                            <p class="text-gray-400 mb-4">
+                                There are several ways to stake ETH:
+                            </p>
+                            <ul class="list-disc pl-5 space-y-2 text-gray-400">
+                                <li><strong>Solo staking:</strong> Run your own validator node with 32 ETH</li>
+                                <li><strong>Staking pools:</strong> Join a pool with less than 32 ETH (e.g., Lido, Rocket Pool)</li>
+                                <li><strong>Centralized exchanges:</strong> Stake through platforms like Coinbase, Kraken, or Binance</li>
+                                <li><strong>Staking as a service:</strong> Use providers who manage the node for you</li>
+                            </ul>
+                            <p class="text-gray-400 mt-4">
+                                Current APR is approximately 4-6%, paid in ETH.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 3 -->
+                    <div class="bg-gray-800 rounded-xl overflow-hidden">
+                        <button class="faq-toggle w-full flex justify-between items-center p-6 text-left">
+                            <span class="text-lg font-medium">When will sharding be implemented?</span>
+                            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content px-6 pb-6 hidden">
+                            <p class="text-gray-400">
+                                Sharding is being implemented in phases. The first phase (data shards) is expected in 2023, which will significantly improve scalability by providing more data availability for rollups. Execution shards that can process transactions are planned for later phases, likely 2024 or beyond. The roadmap is iterative and may change based on research and development progress.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 4 -->
+                    <div class="bg-gray-800 rounded-xl overflow-hidden">
+                        <button class="faq-toggle w-full flex justify-between items-center p-6 text-left">
+                            <span class="text-lg font-medium">What happens to my existing ETH when Ethereum 2.0 launches?</span>
+                            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content px-6 pb-6 hidden">
+                            <p class="text-gray-400">
+                                Your existing ETH automatically became ETH2 after The Merge in September 2022. There was no action required - it's the same asset with the same value, just now secured by Proof of Stake instead of Proof of Work. All your ETH holdings, DeFi positions, NFTs, and other assets remained exactly the same.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 5 -->
+                    <div class="bg-gray-800 rounded-xl overflow-hidden">
+                        <button class="faq-toggle w-full flex justify-between items-center p-6 text-left">
+                            <span class="text-lg font-medium">How does Ethereum compare to other smart contract platforms?</span>
+                            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content px-6 pb-6 hidden">
+                            <p class="text-gray-400 mb-4">
+                                Ethereum remains the dominant smart contract platform by most metrics:
+                            </p>
+                            <ul class="list-disc pl-5 space-y-2 text-gray-400">
+                                <li><strong>Developer activity:</strong> Largest developer community with most active projects</li>
+                                <li><strong>Total Value Locked (TVL):</strong> Over 60% of all DeFi is on Ethereum</li>
+                                <li><strong>Security:</strong> Most battle-tested and decentralized network</li>
+                                <li><strong>Ecosystem:</strong> Largest collection of dApps, tools, and services</li>
+                            </ul>
+                            <p class="text-gray-400 mt-4">
+                                While other chains may offer lower fees currently, Ethereum's roadmap aims to match this scalability while maintaining its security and decentralization advantages.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-purple-900/40 to-blue-900/40">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Explore the Future of Ethereum?</h2>
+            <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                Join millions of users and developers building the decentralized future.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <button class="bg-white text-gray-900 px-8 py-4 rounded-lg text-lg font-bold hover:bg-gray-200 transition">
+                    Get Started with Ethereum
+                </button>
+                <button class="border border-white text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-white/10 transition">
+                    Developer Documentation
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800 py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold gradient-text inline-block mb-4">Ethereum</h3>
+                    <p class="text-gray-400 mb-4">
+                        The foundation for a new era of decentralized applications and internet services.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-discord text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-reddit text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Documentation</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Whitepaper</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Roadmap</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Community</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Forums</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">GitHub</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Meetups</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Grants</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Developers</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Solidity</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Truffle</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Hardhat</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Remix IDE</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 mb-4 md:mb-0">
+                    &copy; 2023 Ethereum Foundation. All rights reserved.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-500 hover:text-white transition">Privacy Policy</a>
+                    <a href="#" class="text-gray-500 hover:text-white transition">Terms of Service</a>
+                    <a href="#" class="text-gray-500 hover:text-white transition">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-gray-800 w-12 h-12 rounded-full flex items-center justify-center text-white shadow-lg hover:bg-gray-700 transition hidden">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // FAQ accordion
+        const faqToggles = document.querySelectorAll('.faq-toggle');
+        
+        faqToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const content = toggle.nextElementSibling;
+                const icon = toggle.querySelector('i');
+                
+                content.classList.toggle('hidden');
+                icon.classList.toggle('transform');
+                icon.classList.toggle('rotate-180');
+            });
+        });
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('hidden');
+            } else {
+                backToTopButton.classList.add('hidden');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
